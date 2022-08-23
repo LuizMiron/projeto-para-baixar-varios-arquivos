@@ -14,4 +14,8 @@ def baixar_arquivo(url, endereco):
 
 
 if __name__ == '__main__':
-    baixar_arquivo('https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf', 'teste.pdf')
+    BASE_URL = 'https://math.mit.edu/classes/18.745/Notes/Lecture_{}_Notes.pdf'
+    OUTPUT_DIR = 'output'
+    for i in range(1, 26):
+        nome_arquivo = os.path.join(OUTPUT_DIR, f'nota_de_aula{i}.pdf')
+        baixar_arquivo(BASE_URL.format(i), nome_arquivo)
